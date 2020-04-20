@@ -25,12 +25,8 @@ public class MainList {
 
             if(wordCount == 2){
                 list.append(words[0].charAt(0),Integer.parseInt(words[1]));
-                //System.out.println(Integer.parseInt(words[1]));
-                //list.head = new Node(words[0].charAt(0),Integer.parseInt(words[1]));
             }else{
                 list.append(words[0].charAt(0),Integer.parseInt(words[1]),Double.parseDouble(words[2]));
-                //System.out.println(Double.parseDouble(words[2]));
-                //list.head = new Node(words[0].charAt(0),Integer.parseInt(words[1]),Double.parseDouble(words[2]));
             }
         }
     }
@@ -39,7 +35,7 @@ public class MainList {
     {
         Node currNode = list.head;
 
-        System.out.print("LinkedList: ");
+        System.out.println("LinkedList: ");
 
         // Traverse through the LinkedList
         while (currNode != null) {
@@ -47,7 +43,8 @@ public class MainList {
             if(currNode.getType() == 'S'){
                 System.out.println(currNode.getType() + " " + currNode.getQuantity() + " items");
             }else if(currNode.getType() == 'R'){
-                System.out.println(currNode.getType() + " " + currNode.getQuantity()*currNode.getPrice());
+                System.out.print(currNode.getType());
+                System.out.printf(" $%.2f\n",currNode.getPrice());
             }else{
                 System.out.println(currNode.getType() + " " + currNode.getQuantity() + '%');
             }

@@ -6,6 +6,9 @@ public class MainList {
     public static void main(String[] args) throws FileNotFoundException {
         LinkedList list = new LinkedList();
 
+        readFiles(list);
+
+        printList(list);
 
     }
     public static void readFiles(LinkedList list) throws FileNotFoundException {
@@ -21,11 +24,36 @@ public class MainList {
             wordCount = wordCount + words.length;
 
             if(wordCount == 2){
-                list.head = new Node(words[0].charAt(0),Integer.parseInt(words[1]));
+                list.append(words[0].charAt(0),Integer.parseInt(words[1]));
+                //System.out.println(Integer.parseInt(words[1]));
+                //list.head = new Node(words[0].charAt(0),Integer.parseInt(words[1]));
             }else{
-                list.head = new Node(words[0].charAt(0),Integer.parseInt(words[1]),
-                        Double.parseDouble(words[2]));
+                list.append(words[0].charAt(0),Integer.parseInt(words[1]),Double.parseDouble(words[2]));
+                //System.out.println(Double.parseDouble(words[2]));
+                //list.head = new Node(words[0].charAt(0),Integer.parseInt(words[1]),Double.parseDouble(words[2]));
             }
+        }
+    }
+
+    public static void printList(LinkedList list)
+    {
+        Node currNode = list.head;
+
+        System.out.print("LinkedList: ");
+
+        // Traverse through the LinkedList
+        while (currNode != null) {
+            // Print the data at current node
+            if(currNode.getType() == 'S'){
+                System.out.println(currNode.getType() + " " + currNode.getQuantity() + " items");
+            }else if(currNode.getType() == 'R'){
+                System.out.println(currNode.getType() + " " + currNode.getQuantity()*currNode.getPrice());
+            }else{
+                System.out.println(currNode.getType() + " " + currNode.getQuantity() + '%');
+            }
+
+            // Go to next node
+            currNode = currNode.next;
         }
     }
 }

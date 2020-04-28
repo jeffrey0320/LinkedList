@@ -41,14 +41,14 @@ public class MainList {
         while (currNode != null) {
             // Print the data at current node
             if(currNode.getType() == 'S'){
-                System.out.println(currNode.getType() + " " + currNode.getQuantity() + " items");
+                System.out.println(currNode.getType() + " " + currNode.getQuantity() + " widgets sold");
             }else if(currNode.getType() == 'R'){
-                System.out.print(currNode.getType());
-                System.out.printf(" $%.2f\n",currNode.getPrice());
+                System.out.print(currNode.getType() + " " + currNode.getQuantity() + " widgets received at");
+                System.out.printf(" $%.2f",currNode.getPrice());
+                System.out.println(" each");
             }else{
-                System.out.println(currNode.getType() + " " + currNode.getQuantity() + '%');
+                System.out.println(currNode.getType() + " Next 2 customers will receive a " + currNode.getQuantity() + "% discount");
             }
-
             // Go to next node
             currNode = currNode.next;
         }

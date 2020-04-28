@@ -2,24 +2,30 @@ public class LinkedList {
     Node head;
 
     public void append(char type, int quantity){
+        Node newNode = new Node(type,quantity);
         if (head == null) {
             head = new Node(type,quantity);
+            return;
         }
-        Node current = head;
-        while(current.next != null){
-            current = current.next;
+        newNode.next = null;
+        Node last = head;
+        while(last.next != null){
+            last = last.next;
         }
-        current.next = new Node(type,quantity);
+        last.next = newNode;
     }
 
-    public void append(char type, int quantity, double price){
+    public void append(char type, int quantity, double price) {
+        Node newNode = new Node(type,quantity,price);
         if (head == null) {
             head = new Node(type,quantity,price);
+            return;
         }
-        Node current = head;
-        while(current.next != null){
-            current = current.next;
+        newNode.next = null;
+        Node last = head;
+        while(last.next != null){
+            last = last.next;
         }
-        current.next = new Node(type,quantity,price);
+        last.next = newNode;
     }
 }
